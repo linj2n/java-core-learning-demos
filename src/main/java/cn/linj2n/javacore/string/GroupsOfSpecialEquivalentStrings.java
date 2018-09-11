@@ -17,7 +17,7 @@ public class GroupsOfSpecialEquivalentStrings {
     public int numSpecialEquivGroups(String[] A) {
         return numSpecialEquivGroupsWithCollections(A);
     }
-    public int numSpecialEquivGroupsWithCollections(String[] strings) {
+    private int numSpecialEquivGroupsWithCollections(String[] strings) {
         Set<String> set = new HashSet<>();
         for (String string: strings) {
             List<Character> evenChars = new ArrayList<>();
@@ -26,9 +26,9 @@ public class GroupsOfSpecialEquivalentStrings {
             // 1. string split into two list: even \ odd.
             for (int i = 0; i < string.length(); i++) {
                 if (i % 2 == 0) {
-                    evenChars.add(Character.valueOf(string.charAt(i)));
+                    evenChars.add(string.charAt(i));
                 } else {
-                    oddChars.add(Character.valueOf(string.charAt(i)));
+                    oddChars.add(string.charAt(i));
                 }
             }
 
