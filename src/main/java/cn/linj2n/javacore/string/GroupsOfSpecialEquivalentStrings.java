@@ -2,8 +2,9 @@ package cn.linj2n.javacore.string;
 
 import java.util.*;
 
-/*893. Groups of Special-Equivalent Strings*/
-/*You are given an array A of strings.
+/*893. Groups of Special-Equivalent Strings FROM: https://leetcode.com/problems/groups-of-special-equivalent-strings/description/
+
+You are given an array A of strings.
 
 Two strings S and T are special-equivalent if after any number of moves, S == T.
 
