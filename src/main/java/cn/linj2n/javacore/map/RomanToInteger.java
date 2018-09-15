@@ -66,22 +66,24 @@ public class RomanToInteger {
         map.put("XC",90);
         map.put("CD",400);
         map.put("CM",900);
-
-        List<Integer> toInteger = new ArrayList<Integer>(s.length());
-        for (int i = 0; i < s.length(); i++) {
-            int intValue = 0;
-            String mayNeedReplace = (i != s.length() - 1) ? s.substring(i, i+2) : "";
-            if (!mayNeedReplace.isEmpty() && map.containsKey(mayNeedReplace)) {
-                intValue = map.get(mayNeedReplace);
-                i ++;
+        
+        int result = 0; 
+        int i = 0;
+        while (i < s.length()) {
+            int next = i + 1;
+            String twoDigit = (next == s.length()) ? "" : s.substring(i, next + 1);
+            String oneDigit = s.substring(i,next);
+            
+            int toIntValue = 0;
+            if (map.containsKey(twoDigit)) {
+                toIntValue = map.get(twoDigit);
+                i = next + 1;
             } else {
-                intValue = map.get(s.substring(i,i+1));
+                toIntValue = map.get(oneDigit);
+                i = i + 1;
             }
-            toInteger.add(intValue);
+            result += toIntValue;
         }
-        int result = 0;
-        for (int i: toInteger) {result += i;}
         return result;
-
     }
 }
